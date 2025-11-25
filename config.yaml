@@ -1,0 +1,50 @@
+# Configuration for Dubai ETA Prediction System
+
+data:
+  n_zones: 100
+  grid_size: 10
+  n_trips: 50000
+  start_date: "2024-01-01"
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+zones:
+  business:
+    cells: [44, 45, 54, 55]
+    speed_factor: 0.7
+  coastal:
+    cells: [8, 9, 18, 19, 28, 29, 38, 39, 48, 49, 58, 59, 68, 69, 78, 79, 88, 89, 98, 99]
+    speed_factor: 0.85
+  airport:
+    cells: [98, 99, 88, 89]
+    speed_factor: 0.65
+
+traffic:
+  rush_hours:
+    morning: [7, 8, 9]
+    evening: [17, 18, 19, 20]
+    slowdown_factor: 1.4
+  late_night:
+    hours: [0, 1, 2, 3, 4, 5]
+    speedup_factor: 0.85
+
+weather:
+  sandstorm_prob: 0.05
+  sandstorm_impact: 1.3
+  rain_prob: 0.02
+  rain_impact: 1.25
+
+model:
+  xgboost:
+    n_estimators: 200
+    max_depth: 8
+    learning_rate: 0.1
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true

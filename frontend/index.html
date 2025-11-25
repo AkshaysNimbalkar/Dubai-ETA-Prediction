@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubai ETA Prediction System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚗 Dubai Ride-Hailing ETA System</h1>
+            <p class="subtitle">Real-time trip duration predictions</p>
+        </header>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <h2>City Map</h2>
+                <div style="background: #e8f5e9; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9em; color: #2e7d32;">
+                    <strong>ℹ️ How to use:</strong> Click on zones to select pickup (green border) and dropoff (red border) locations. 
+                    The map represents a 10×10 grid of Dubai zones (0-99). Distance is calculated as grid units between zones.
+                </div>
+                <div id="cityGrid" class="city-grid"></div>
+                <div class="legend">
+                    <div><span class="legend-item business"></span> Business District</div>
+                    <div><span class="legend-item coastal"></span> Coastal Area</div>
+                    <div><span class="legend-item airport"></span> Airport</div>
+                    <div><span class="legend-item residential"></span> Residential</div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <h2>Request ETA Prediction</h2>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="pickupZone">Pickup Zone:</label>
+                        <select id="pickupZone" class="form-control">
+                            <option value="">Select Zone...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dropoffZone">Dropoff Zone:</label>
+                        <select id="dropoffZone" class="form-control">
+                            <option value="">Select Zone...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="requestTime">Request Time (Dubai Time - UTC+4):</label>
+                        <input type="datetime-local" id="requestTime" class="form-control">
+                        <small style="color: #666; font-size: 0.85em;">Showing Dubai local time. You can select future times for planning.</small>
+                    </div>
+                    
+                    <!-- Distance Display -->
+                    <div id="distanceDisplay" style="display: none;"></div>
+                    
+                    <button id="predictBtn" class="btn btn-primary">
+                        Get ETA Prediction
+                    </button>
+                </div>
+
+                <div id="resultContainer" class="result-container" style="display: none;">
+                    <h3>Prediction Results</h3>
+                    <div class="result-card">
+                        <div class="eta-main">
+                            <span id="etaValue">--</span> minutes
+                        </div>
+                        <div class="confidence">
+                            95% CI: <span id="confidenceInterval">--</span> minutes
+                        </div>
+                        <div class="factors">
+                            <h4>Contributing Factors:</h4>
+                            <ul id="factorsList"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="errorContainer" class="error-container" style="display: none;">
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <h2>System Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalPredictions">0</div>
+                    <div class="stat-label">Total Predictions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avgResponseTime">0ms</div>
+                    <div class="stat-label">Avg Response Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="modelAccuracy">±2.8min</div>
+                    <div class="stat-label">Model Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="systemStatus">Ready</div>
+                    <div class="stat-label">System Status</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
