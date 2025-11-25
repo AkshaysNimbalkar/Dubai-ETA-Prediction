@@ -1,9 +1,8 @@
-```markdown
-# 🚗 Dubai Ride-Hailing ETA Prediction System
+#  Dubai Ride-Hailing ETA Prediction System
 
 A complete end-to-end machine learning system for predicting ride-hailing ETAs in Dubai, featuring synthetic data generation, advanced modeling, and real-time API deployment.
 
-## 🌟 Features
+##  Features
 
 - **Grid-based city representation** (10x10 zones)
 - **Realistic synthetic data generation** with complex patterns
@@ -15,14 +14,17 @@ A complete end-to-end machine learning system for predicting ride-hailing ETAs i
 
 Demo:
 
+#### 1.	Select the pick up and drop off zones:
 ![Demo 1](images/image1.png)
 
+#### 2. pick up Zone 22 selected and drop off zone 68 selected and click on ETA Prediction
 ![Demo 2](images/image2.png)
 
+#### 3. ETA Predictions
 ![Demo 3](images/image3.png)
 
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Installation
 
@@ -69,21 +71,21 @@ This automatically:
 - Starts the API server
 - Opens the browser
 
-## 📊 Model Performance
+##  Model Performance
 
-| Model    | MAE (min) | RMSE (min) | MAPE (%) | R² Score |
+| Model    | MAE (min) | RMSE (min) | MAPE (%) | R Score |
 |----------|-----------|------------|----------|----------|
 | Baseline | 4.2       | 5.8        | 18.5     | 0.72     |
 | Advanced | 2.8       | 4.1        | 12.3     | 0.87     |
 
-## 🗺️ Zone Types
+##  Zone Types
 
 - **Business Districts**: Zones 44, 45, 54, 55 (central)
 - **Coastal Areas**: Eastern zones (columns 8-9)
 - **Airport**: Zones 88, 89, 98, 99
 - **Residential**: All other zones
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### Health Check
 ```
@@ -105,7 +107,7 @@ POST /predict_eta
 GET /zones
 ```
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run all tests
@@ -115,19 +117,19 @@ pytest tests/
 pytest tests/test_models.py
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
-├── api/           - FastAPI application
-├── src/           - Core modules
-├── frontend/      - Web interface
-├── scripts/       - Training and demo scripts
-├── data/          - Generated data and models
-├── tests/         - Unit tests
-└── config.yaml    - Configuration file
+ api/           - FastAPI application
+ src/           - Core modules
+ frontend/      - Web interface
+ scripts/       - Training and demo scripts
+ data/          - Generated data and models
+ tests/         - Unit tests
+ config.yaml    - Configuration file
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 Edit `config.yaml` to customize:
 - City grid size
@@ -135,15 +137,15 @@ Edit `config.yaml` to customize:
 - Weather probabilities
 - Model parameters
 
-## 🎯 Key Assumptions
+##  Key Assumptions
 
-1. **Geographic Layout**: Dubai as 30km × 30km grid
+1. **Geographic Layout**: Dubai as 30km  30km grid
 2. **Traffic Patterns**: Rush hours, weekend variations
 3. **Weather Impact**: Sandstorms (5%), rain (2%)
 4. **Driver Behavior**: 15% efficiency variance
 5. **Special Events**: 10% of days with localized congestion
 
-## 📈 Future Improvements
+##  Future Improvements
 
 - Real-time traffic integration
 - Driver-specific models
@@ -180,7 +182,7 @@ Edit `config.yaml` to customize:
 
 
 
-- 🛠️ Customization
+-  Customization
 Edit config.yaml to adjust:
 
 City grid size
@@ -189,7 +191,7 @@ Traffic patterns
 Weather probabilities
 Model hyperparameters
 
-📈 Why This Solution Excels
+ Why This Solution Excels
 
 No External Dependencies: Completely self-contained synthetic data
 Realistic Complexity: Multiple interacting factors beyond simple distance
